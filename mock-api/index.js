@@ -11,11 +11,11 @@ const app = express();
 app.use(cors());
 
 // Customized server domain to watch with DBB SubDomain
-app.use("/plantae/services", apiMocker("mock-api"));
+app.use("/plantae", apiMocker("/plantae"));
 app.use("*", (req, res) => {
-  console.log("HELLOO");
   res.status(404).send({ error: { message: "Incorrect URL hit" } });
 });
 
-console.log(`Mock API server is up and running at: http:localhost:${port}`);
-app.listen(port);
+app.listen(port, () => {
+  console.log(`Mock API server is up and running at: http:localhost:${port}`);
+});
