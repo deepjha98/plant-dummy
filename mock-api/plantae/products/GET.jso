@@ -1,0 +1,9 @@
+const { data } = require("../../data");
+
+module.exports = function (request, response) {
+  // if (!request.body("X-Auth-Key")) {
+  //   response.status(403).send({});
+  // } else {
+  response.status(200).json(data);
+  // }
+};
